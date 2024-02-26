@@ -40,7 +40,7 @@ class MoviesController < ApplicationController
 
   def update
     movie_attributes = params.require(:movie).permit(:title, :description)
-    @movie = Movie.new(movie_attributes)
+    movie = Movie.new(movie_attributes)
 
     if movie.valid?
       movie.save
