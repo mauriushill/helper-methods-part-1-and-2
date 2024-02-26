@@ -7,7 +7,7 @@ class MoviesController < ApplicationController
   def index
     matching_movies = Movie.all
 
-    @list_of_movies = matching_movies.order({ :created_at => :desc })
+    @list_of_movies = matching_movies.order( created_at: :desc )
 
     
      
@@ -19,7 +19,7 @@ class MoviesController < ApplicationController
   def show
     the_id = params.fetch(:id)
 
-    matching_movies = Movie.where({ :id => the_id })
+    matching_movies = Movie.where( id: :the_id )
 
     @the_movie = matching_movies.first
 
@@ -33,7 +33,7 @@ class MoviesController < ApplicationController
 
     if @the_movie.valid?
       @the_movie.save
-      redirect_to("/movies", { :notice => "Movie created successfully." })
+      redirect_to("/movies", notice: "Movie created successfully.")
     else
       render template: "movies/new", alert: "Movie unsuccessful"
     end
